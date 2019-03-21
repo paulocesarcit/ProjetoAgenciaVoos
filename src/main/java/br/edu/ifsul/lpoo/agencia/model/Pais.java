@@ -10,16 +10,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_pais")
-public class Pais implements Serializable {
+public class Pais implements Serializable{
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id//defini a chave primaria da tabela e o autoincremento com um campo serial
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer codigo;
     
-    @Column(nullable = false)
+    @Column(nullable = false)//seta a obritoriedade para o campo nome
     private String nome;
-
-    public Pais() {
+    
+    public Pais(){
+        
     }
 
     public Integer getCodigo() {

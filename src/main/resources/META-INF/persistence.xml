@@ -2,7 +2,19 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="pu_eclipseLink_Postgresql" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>br.edu.ifsul.lpoo.agencia.model.AeroPorto</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Cidade</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Endereco</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Estado</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Funcionario</class>
     <class>br.edu.ifsul.lpoo.agencia.model.Pais</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Passageiro</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Pessoa</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Reserva</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.ReservaRota</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Rota</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.TipoAeronave</class>
+    <class>br.edu.ifsul.lpoo.agencia.model.Trecho</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/db_agencia"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

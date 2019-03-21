@@ -7,25 +7,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_aeroporto")
-public class Aeroporto implements Serializable {
+public class AeroPorto implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer codigo;
     
-    @Column(nullable = false)
+    @Column(length = 100)    
     private String nome;
     
-    @OneToOne
-    @JoinColumn(name="codigo_cidade", nullable = false)
+    @ManyToOne
+    @JoinColumn(name="codigo_cidade", nullable = false)//renomeia a coluna e de preenchimento obrigatorio
     private Cidade cidade;
-
-    public Aeroporto() {
+    
+    public AeroPorto(){
+        
     }
 
     public Integer getCodigo() {

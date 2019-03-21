@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="br.edu.ifsul.lpoo.agencia.testes.TestePersistenciaJPA" time="1.175" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="br.edu.ifsul.lpoo.agencia.testes.TestePersistenciaJPA" time="1.727" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
@@ -16,7 +16,7 @@
     <property name="sun.os.patch.level" value=""/>
     <property name="test" value="br.edu.ifsul.lpoo.agencia.testes.TestePersistenciaJPA"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\20172pf.cc0311\Desktop\ProjetoAgenciaVoos"/>
+    <property name="user.dir" value="C:\Users\20172pf.cc0311\Desktop\Nova pasta\ProjetoAgenciaVoos"/>
     <property name="java.runtime.version" value="1.8.0_131-b11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\endorsed"/>
@@ -62,5 +62,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="br.edu.ifsul.lpoo.agencia.testes.TestePersistenciaJPA" name="testarPesistenciaFuncionario" time="1.112"/>
+  <testcase classname="br.edu.ifsul.lpoo.agencia.testes.TestePersistenciaJPA" name="testarPersistenciaFuncionario" time="1.492"/>
+  <testcase classname="br.edu.ifsul.lpoo.agencia.testes.TestePersistenciaJPA" name="testarPersistenciaPais" time="0.192"/>
+  <testcase classname="br.edu.ifsul.lpoo.agencia.testes.TestePersistenciaJPA" name="testarPersistenciaCidade" time="0"/>
+  <testcase classname="br.edu.ifsul.lpoo.agencia.testes.TestePersistenciaJPA" name="testarPersistenciaEstado" time="0"/>
 </testsuite>

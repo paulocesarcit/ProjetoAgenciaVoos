@@ -1,7 +1,7 @@
 package br.edu.ifsul.lpoo.agencia.model;
 
-import java.util.Calendar;
 import java.io.Serializable;
+import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,24 +17,27 @@ import javax.persistence.Temporal;
 public class ReservaRota implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY) 
     private Integer codigo;
     
     @Column(nullable = false)
     private Integer numeroAssento;
     
-    @ManyToOne
-    @JoinColumn(name = "codigo_reserva", nullable = false)
-    private Reserva reserva;
+    @Column(nullable = false)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Calendar data_partida;
     
     @ManyToOne
-    @JoinColumn(name = "codigo_rota", nullable = false)
+    @JoinColumn(name="codigo_rota", nullable = false)
     private Rota rota;
+       
+    @ManyToOne
+    @JoinColumn(name="codigo_reserva", nullable = false)    
+    private Reserva reserva;//relacionamento bidirecional
     
-    @Temporal(javax.persistence.TemporalType.TIME)
-    private Calendar dt_partida;
-
-    public ReservaRota() {
+    
+    public ReservaRota(){
+        
     }
 
     public Integer getCodigo() {
@@ -45,12 +48,20 @@ public class ReservaRota implements Serializable {
         this.codigo = codigo;
     }
 
-    public Reserva getReserva() {
-        return reserva;
+    public Integer getNumeroAssento() {
+        return numeroAssento;
     }
 
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
+    public void setNumeroAssento(Integer numeroAssento) {
+        this.numeroAssento = numeroAssento;
+    }
+
+    public Calendar getData_partida() {
+        return data_partida;
+    }
+
+    public void setData_partida(Calendar data_partida) {
+        this.data_partida = data_partida;
     }
 
     public Rota getRota() {
@@ -61,20 +72,12 @@ public class ReservaRota implements Serializable {
         this.rota = rota;
     }
 
-    public Integer getNumeroAssento() {
-        return numeroAssento;
+    public Reserva getReserva() {
+        return reserva;
     }
 
-    public void setNumeroAssento(Integer numeroAssento) {
-        this.numeroAssento = numeroAssento;
-    }
-
-    public Calendar getDt_partida() {
-        return dt_partida;
-    }
-
-    public void setDt_partida(Calendar dt_partida) {
-        this.dt_partida = dt_partida;
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
     
 }

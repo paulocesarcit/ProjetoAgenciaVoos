@@ -1,27 +1,26 @@
 package br.edu.ifsul.lpoo.agencia.model;
 
 import java.io.Serializable;
+import javax.persistence.Embeddable;
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_endereco")
+@Embeddable
 public class Endereco implements Serializable {
     
-    
+    @Column(length = 100)
     private String logradouro;
     
+    @Column(length = 8)
     private String cep;
     
+    @Column(length = 50)
     private String complemento;
     
+    @Column(length = 10)
     private String numero;
-
-    public Endereco() {
+    
+    public Endereco(){
+        
     }
 
     public String getLogradouro() {
@@ -55,5 +54,6 @@ public class Endereco implements Serializable {
     public void setNumero(String numero) {
         this.numero = numero;
     }
+    
     
 }

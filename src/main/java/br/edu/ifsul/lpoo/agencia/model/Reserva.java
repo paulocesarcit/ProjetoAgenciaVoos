@@ -1,9 +1,9 @@
 package br.edu.ifsul.lpoo.agencia.model;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
-import java.util.ArrayList;
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,32 +16,34 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-@Table(name = "tb_reserva")
+@Table(name = "tb_reserva") 
 public class Reserva implements Serializable {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)  
     private Integer codigo;
     
+    @Column(nullable = true, length = 200)
+    private String observacao;
+    
     @Column(nullable = false)
-    @Temporal(javax.persistence.TemporalType.TIME)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Calendar data_reserva;
     
     @ManyToOne
-    @JoinColumn(name = "codigo_funcionario", nullable = false)
-    private Funcionario funcionario;
-    
-    @ManyToOne
-    @JoinColumn(name = "codigo_passageiro", nullable = false)
+    @JoinColumn(name="codigo_passageiro", nullable = false)
     private Passageiro passageiro;
     
-    @OneToMany(mappedBy = "reserva")
-    private List<ReservaRota> rotasReservadas;
+    @ManyToOne
+    @JoinColumn(name="codigo_funcionario", nullable = false)
+    private Funcionario funcionario; 
     
-    @Column(nullable = true, length = 200)
-    private String observacoes;
-
-    public Reserva() {
+    @OneToMany(mappedBy = "reserva")
+    private List<ReservaRota> rotasReservadas;//relacionamento bidirecional
+    
+    
+    public Reserva(){
+        
     }
 
     public Integer getCodigo() {
@@ -52,20 +54,20 @@ public class Reserva implements Serializable {
         this.codigo = codigo;
     }
 
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+
     public Calendar getData_reserva() {
         return data_reserva;
     }
 
     public void setData_reserva(Calendar data_reserva) {
         this.data_reserva = data_reserva;
-    }
-
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
     }
 
     public Passageiro getPassageiro() {
@@ -76,26 +78,35 @@ public class Reserva implements Serializable {
         this.passageiro = passageiro;
     }
 
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+   
     public List<ReservaRota> getRotasReservadas() {
         return rotasReservadas;
     }
 
     public void setRotaReservada(ReservaRota rotaReservada) {
-        // logica pra adicionar no array
-        // testar se for null inicializar, se n adc
-        if (this.rotasReservadas == null){
-            this.rotasReservadas = new ArrayList<ReservaRota>();
-        } else {
-            this.rotasReservadas.add(rotaReservada);
+        //NULLPOINTEREXCEPTION
+        if(this.rotasReservadas == null){
+           this.rotasReservadas = new ArrayList<ReservaRota>(); 
         }
+        this.rotasReservadas.add(rotaReservada);
+        //o parâmetro rotaReservada deverá ser adicionado na 
+        //variável de instancia rotasReservadas
+        //No entanto, essa variável pode estar nulla, então
+        //é necessário testa-la, incializa-la, caso necessário
+        //e por fim adicionar o parâmetro na variável.
+        
+        
+        
     }
-
-    public String getObservacoes() {
-        return observacoes;
-    }
-
-    public void setObservacoes(String observacoes) {
-        this.observacoes = observacoes;
-    }
+    
+    
     
 }

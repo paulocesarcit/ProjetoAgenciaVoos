@@ -12,23 +12,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_estado")
-public class Estado implements Serializable {
-    
+public class Estado implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer codigo;
     
-    @Column(nullable = false)
+    @Column(nullable = false)    
     private String nome;
     
-    @Column(length = 2, nullable = false)
+    @Column(length = 2, nullable = false) 
     private String uf;
     
     @ManyToOne
-    @JoinColumn(name="codigo_pais", nullable = false)
+    @JoinColumn(name="pais_codigo", nullable = false)
     private Pais pais;
-
-    public Estado() {
+    
+    public Estado(){    
     }
 
     public Integer getCodigo() {

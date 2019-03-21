@@ -12,20 +12,21 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_cidade")
-public class Cidade implements Serializable {
+public class Cidade implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)   
     private Integer codigo;
     
     @Column(nullable = false, length = 200)
     private String nome;
     
     @ManyToOne
-    @JoinColumn(name="codigo_estado", nullable = false)
+    @JoinColumn(name = "codigo_estado", nullable = false)
     private Estado estado;
-
-    public Cidade() {
+    
+    public Cidade(){
+        
     }
 
     public Integer getCodigo() {

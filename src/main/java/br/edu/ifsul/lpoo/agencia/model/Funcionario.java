@@ -2,18 +2,22 @@ package br.edu.ifsul.lpoo.agencia.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 @Entity
-@Table(name = "tb_pessoa")
-public class Funcionario extends Pessoa implements Serializable {
+@DiscriminatorValue(value = "F")
+@NamedQueries({ 
+    @NamedQuery(name="Funcionario.orderbyCodigo",
+               query="Select f FROM Funcionario f order by f.codigo asc"),
+    @NamedQuery(name="Funcionario.login",
+               query="Select f FROM Funcionario f where f.login = :paramLogin and f.senha = :paramSenha")
+})
+public class Funcionario extends Pessoa implements Serializable{
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)    
     private String matricula;
     
     @Column(nullable = false)
@@ -21,16 +25,9 @@ public class Funcionario extends Pessoa implements Serializable {
     
     @Column(nullable = false)
     private String senha;
-
-    public Funcionario() {
-    }
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    
+    public Funcionario(){
+        
     }
 
     public String getLogin() {
@@ -47,6 +44,14 @@ public class Funcionario extends Pessoa implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
     
 }
