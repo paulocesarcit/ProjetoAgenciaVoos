@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_aeroporto")
-public class AeroPorto implements Serializable {
+public class Aeroporto implements Serializable {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -25,7 +25,7 @@ public class AeroPorto implements Serializable {
     @JoinColumn(name="codigo_cidade", nullable = false)//renomeia a coluna e de preenchimento obrigatorio
     private Cidade cidade;
     
-    public AeroPorto(){
+    public Aeroporto(){
         
     }
 

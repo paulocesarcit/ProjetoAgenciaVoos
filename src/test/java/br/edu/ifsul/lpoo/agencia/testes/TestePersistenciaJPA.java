@@ -59,11 +59,11 @@ public class TestePersistenciaJPA {
     public void testarPersistenciaCidade() {
         InterfacePersistencia persistencia = PersistenciaJPA.getInstance();
         if (persistencia.conexaoAberta()) {
-            Cidade cidade = (Cidade) persistencia.find(Cidade.class, new Integer(1));
+            Cidade cidade = (Cidade) persistencia.find(Cidade.class, new Integer(2));
             if(cidade == null) {
                 Cidade cid = new Cidade();
                 cid.setNome("Passo Fundo");
-                cid.setEstado((Estado) persistencia.find(Estado.class, new Integer(1)));
+                cid.setEstado((Estado) persistencia.find(Estado.class, new Integer(2)));
                 persistencia.persist(cid);
                 System.out.println("Cidade criada: " + cid.getCodigo());
             } else {
@@ -86,8 +86,8 @@ public class TestePersistenciaJPA {
             Funcionario func = new Funcionario();
             func.setNome("Eu");
             func.setEndereco(end);
-            func.setCidade((Cidade) persistencia.find(Cidade.class, new Integer(1)));
-            func.setLogin("diego");
+            func.setCidade((Cidade) persistencia.find(Cidade.class, new Integer(2)));
+            func.setLogin("paulo");
             func.setMatricula("20172");
             func.setSenha("1234");
             persistencia.persist(func);
@@ -105,8 +105,8 @@ public class TestePersistenciaJPA {
                 Funcionario newfunc = new Funcionario();
                 newfunc.setNome("Eu");
                 newfunc.setEndereco(end);
-                newfunc.setCidade((Cidade) persistencia.find(Cidade.class, new Integer(1)));
-                newfunc.setLogin("diego");
+                newfunc.setCidade((Cidade) persistencia.find(Cidade.class, new Integer(2)));
+                newfunc.setLogin("paulo");
                 newfunc.setMatricula("20172");
                 newfunc.setSenha("1234");
                 persistencia.persist(newfunc);

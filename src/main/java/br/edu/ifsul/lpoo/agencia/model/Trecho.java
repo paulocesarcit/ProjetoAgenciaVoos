@@ -23,11 +23,11 @@ public class Trecho implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="aeroporto_partida", nullable = false)//renomeia a coluna e de preenchimento obrigatorio
-    private AeroPorto partida;
+    private Aeroporto partida;
     
     @ManyToOne
     @JoinColumn(name="aeroporto_chegada", nullable = false)//renomeia a coluna e de preenchimento obrigatorio
-    private AeroPorto chegada;
+    private Aeroporto chegada;
     
     @Column(length = 10)
     private Integer tempoDuracaoMin;
@@ -52,19 +52,19 @@ public class Trecho implements Serializable {
         this.descricao = descricao;
     }
 
-    public AeroPorto getPartida() {
+    public Aeroporto getPartida() {
         return partida;
     }
 
-    public void setPartida(AeroPorto partida) {
+    public void setPartida(Aeroporto partida) {
         this.partida = partida;
     }
 
-    public AeroPorto getChegada() {
+    public Aeroporto getChegada() {
         return chegada;
     }
 
-    public void setChegada(AeroPorto chegada) {
+    public void setChegada(Aeroporto chegada) {
         this.chegada = chegada;
     }
 
